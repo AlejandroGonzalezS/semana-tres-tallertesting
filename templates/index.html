@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+
+     <link href="{%  static 'lib/bootstrap-5.3.0/css/bootstrap.min.css' %}"  rel="stylesheet">
+    <script src="{% static 'lib/bootstrap-5.3.0/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.0.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+<body id="body"  style="background-color: #ebeff3;">
+<div class="container mt-4 pt-5 mb-2 pb-2">
+    <div class="row d-flex justify-content-center mb-3 pb-4">
+                <div class="col col-8 d-flex justify-content-center ">
+<span class="h1">Clínica AIEP</span>
+                </div>
+            </div>
+</div>
+
+ <div class="d-flex justify-content-center mb-2">
+     <div class="accordion shadow-lg" id="accordionExample" style="width: 800px;">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Buscar  Ficha
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form>
+                <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Apellidos:</span>
+  <input id="txtBuscar" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+
+</div>
+
+                <div class="mt-3 d-flex justify-content-end">
+<button id="btnBuscar" type="button" class="btn btn-primary me-2">Buscar</button>
+</div>
+
+            </form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button id="fichaMedica" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Ficha Médica
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="input-group">
+  <span class="input-group-text" id="basic-addon1">Run:</span>
+  <input id="run" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+        <div id="emailHelp" class="form-text">Ingrese su RUN sin puntos y con guión.</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Nombres:</span>
+  <input id="nombres" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Apellidos:</span>
+  <input id="apellidos" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Dirección:</span>
+  <input id="direccion" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Ciudad:</span>
+  <input id="ciudad" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Teléfono:</span>
+  <input id="telefono" required type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+        <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Email:</span>
+  <input id="email" required type="email" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+                <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Fecha de Nacimiento:</span>
+  <input id="fechaNac" required type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+                <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Estado civil:</span>
+  <input id="estCivil" required type="email" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+                <div class="input-group mt-3">
+  <span class="input-group-text" id="basic-addon1">Comentarios:</span>
+  <textarea id="comentarios" class="form-control" aria-label="With textarea"></textarea>
+</div>
+
+                <div class="mt-3 d-flex justify-content-end">
+<button id="btnGuardar" type="button" class="btn btn-primary me-2">Guardar</button>
+                    <button id="btnLimpiar" type="button" class="btn btn-primary me-2">Limpiar</button>
+                    <button id="btnCerrar" type="button" class="btn btn-primary">Cerrar</button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+
+<!-- Modal -->
+<div class="modal modal-lg fade" id="modalBusqueda" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div  class="modal-body mb-3">
+    <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+            <th scope="col">Run</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Selección</th>
+        </tr>
+  </thead>
+
+        <tbody id="modalBody">
+  </tbody>
+    </table>
+      </div>
+      <div class="modal-footer">
+        <button  id="modalClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-lg fade" id="modalSobreFicha" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div  class="modal-body mb-3">
+    <span class="h3">¿Desea sobreescribir la ficha médica?</span>
+      </div>
+      <div class="modal-footer">
+        <button  id="modalClose2" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button  id="modalSobre" type="button" class="btn btn-primary" data-bs-dismiss="modal">Sobreescribir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
