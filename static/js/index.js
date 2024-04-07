@@ -5,7 +5,7 @@ $(document).ready(function (){
 
             if(txtBuscar.length != 0) {
             $.ajax({
-              url: 'buscarFicha/', // Coloca aquí la URL a la que quieres enviar el valor
+              url: 'buscarFicha/',
               type: 'POST',
               data: {'apellidos': txtBuscar},
 
@@ -23,7 +23,7 @@ $(document).ready(function (){
         td4.append(button);
 
         (function (index) {
-            button.on('click', function () { // Usamos 'on' en lugar de 'click'
+            button.on('click', function () { 
                 $('#modalClose').click();
 
                 $('#run').val(response[index].rut);
@@ -92,7 +92,7 @@ $(document).ready(function (){
         email.length != 0 && fechaNac.length != 0 && estCivil.length != 0 && comentarios != 0) {
 
          $.ajax({
-          url: 'existeFicha/', // Coloca aquí la URL a la que quieres enviar el valor
+          url: 'existeFicha/',
           type: 'POST',
           data: {'rut': run},
           success: function(response) {
@@ -101,7 +101,7 @@ if(response.exit == 1) {
     modalSobre.modal('show');
     modalSobre.on('click', '#modalSobre',  function () {
         $.ajax({
-          url: 'sobreescribirFicha/', // Coloca aquí la URL a la que quieres enviar el valor
+          url: 'sobreescribirFicha/',
           type: 'POST',
           data: {'rut': run, 'nombres': nombres, 'apellidos': apellidos, 'direccion': direccion, 'ciudad': ciudad,
             'telefono': telefono, 'email': email, 'fechaNac': fechaNac, 'estCivil': estCivil, 'comentarios': comentarios},
@@ -119,7 +119,7 @@ createAlert("Error al intentar guardar!", {id: 'alert', class: 'alert alert-dang
     })
 }else {
                     $.ajax({
-          url: 'guardarFicha/', // Coloca aquí la URL a la que quieres enviar el valor
+          url: 'guardarFicha/',
           type: 'POST',
           data: {'rut': run, 'nombres': nombres, 'apellidos': apellidos, 'direccion': direccion, 'ciudad': ciudad,
             'telefono': telefono, 'email': email, 'fechaNac': fechaNac, 'estCivil': estCivil, 'comentarios': comentarios},
